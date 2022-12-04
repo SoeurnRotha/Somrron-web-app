@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "413686887200",
+    "project_id": "somrron-web",
+    "storage_bucket": "somrron-web.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:413686887200:android:fa4c323945daf2ff0edd45",
+        "android_client_info": {
+          "package_name": "com.somrron.samrron"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "413686887200-71nlb17h58s7fjf0ph79nlanqn4kn7t3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.somrron.samrron",
+            "certificate_hash": "ce16beb80e8d1b6dd51b2df14b21622a889c7fb8"
+          }
+        },
+        {
+          "client_id": "413686887200-dkcvdd48hhmtqfui0ddjba9p9viv7svc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJp7X-mVcvsyQTaLUpA1ZViYH7-B_lK4g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "413686887200-dkcvdd48hhmtqfui0ddjba9p9viv7svc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
