@@ -18,7 +18,7 @@ class _DrawerItemState extends State<DrawerItem> {
       alignment: Alignment.center,
       child:  ListTile(
         leading: Icon(widget.icon),
-        title: Text(widget.title,style: TextStyle(fontSize: 20,fontFamily: "f1",fontWeight: FontWeight.bold,letterSpacing: 5),),
+        title: Text(widget.title,style: TextStyle(fontSize: 20,fontFamily: "des",fontWeight: FontWeight.bold,letterSpacing: 5),),
       )
     );
   }

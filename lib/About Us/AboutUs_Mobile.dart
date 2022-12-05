@@ -87,17 +87,38 @@ class _AboutUs_MobileState extends State<AboutUs_Mobile> {
     );
   }
   get _buildCover{
-    return Container(
-      height: 300,
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage("img/logo.jpg"),
-          filterQuality: FilterQuality.high,
-          fit: BoxFit.cover,
-          alignment: Alignment.center
-          // fit: BoxFit.cover
+    return Stack(
+      children: [
+        Container(
+          height: 300,
+          decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage("img/logo.jpg"),
+                  filterQuality: FilterQuality.high,
+                  fit: BoxFit.cover,
+                  alignment: Alignment.center
+                // fit: BoxFit.cover
+              )
+          ),
+        ),
+
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: GestureDetector(
+            onTap: ()=> Navigator.pop(context),
+            child: Container(
+              width: 50,
+              height: 50,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: Colors.white,
+
+              ),
+              child: Icon(Icons.arrow_back_ios_rounded,size: 30,color: Colors.black26,),
+            ),
+          ),
         )
-      ),
+      ]
     );
   }
 }
