@@ -84,221 +84,219 @@ class _Update_And_DeleteState extends State<Update_And_Delete> {
                   onTap: (){
                     // Navigator.push(context, MaterialPageRoute(builder: (context)=> ViewInformation_Page(imageProduct: data['image'],nameProduct: data['name'],priceProduct: data['price'],productInfo: data['proInfo'],desInfo: data['desInfo'],)));
                   },
-                  child: Expanded(
-                    child: Container(
-                      margin: EdgeInsets.symmetric(vertical: 10,horizontal: 10),
-                      height: 700,
+                  child: Container(
+                    margin: EdgeInsets.symmetric(vertical: 10,horizontal: 10),
+                    height: 700,
 
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(10),
-                          boxShadow: [
-                            BoxShadow(
-                                color: Colors.grey,
-                                blurRadius: 10
-                            )
-                          ]
-                      ),
-                      child: Column(
-                        children: [
-                          Stack(
-                            children: [
-                              Container(
-                                height: 200,
-                                width: MediaQuery.of(context).size.width,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(10),
-                                        topRight: Radius.circular(10)
-                                    ),
-                                    image: DecorationImage(
-                                        image: NetworkImage(data['img']),
-                                        fit: BoxFit.cover
-                                    )
-                                ),
-                              ),
-
-                            ],
-                          ),
-
-                          SizedBox(height: 10,),
-                          Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Container(
-                                      child:  Text("${data['name']}", style: TextStyle(fontFamily: "des",fontWeight: FontWeight.bold,fontSize: 18),),
-                                    ),
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                        boxShadow: [
+                          BoxShadow(
+                              color: Colors.grey,
+                              blurRadius: 10
+                          )
+                        ]
+                    ),
+                    child: Column(
+                      children: [
+                        Stack(
+                          children: [
+                            Container(
+                              height: 200,
+                              width: MediaQuery.of(context).size.width,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(10),
+                                      topRight: Radius.circular(10)
                                   ),
-                                  Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Container(
-                                      child:  Text("${data['price']}", style: TextStyle(fontFamily: "des",fontWeight: FontWeight.bold,fontSize: 18),),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Container(
-                                      child: Text("${data['proInfo']}",style: TextStyle(fontFamily: "k2",fontSize: 16),),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Container(
-                                      child: Text("${data['desInfo']}",style: TextStyle(fontFamily: "des",fontSize: 16),),
-                                    ),
-                                  ),
-                                  ElevatedButton(
-                                    onPressed: (){
-                                      showDialog(context: context, builder: (_){
-                                        return Dialog(
-                                          child: ListView(
-                                            physics: BouncingScrollPhysics(),
-                                            children: [
-                                              Padding(
-                                                padding: const EdgeInsets.all(8.0),
-                                                child: InkWell(
-                                                  onTap: (){
-                                                    imagePicker().whenComplete(() => uploadImage(_image!));
-                                                  },
-                                                  child: Container(
-                                                    width: 150,
-                                                    decoration: BoxDecoration(
-                                                      color: Colors.grey,
-
-                                                    ),
-                                                    child: _image != null ? Image.file(_image!.absolute, fit: BoxFit.cover,) : Center(
-                                                      child: Icon(Icons.image, size: 60,),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: const EdgeInsets.all(8.0),
-                                                child: TextField(
-                                                  controller: nameController,
-                                                  style: TextStyle(fontFamily: "k2", fontSize: 16),
-                                                  decoration: InputDecoration(
-                                                      hintText: "Input Name products",
-                                                      hintStyle: TextStyle(fontSize: 16,fontFamily: "des"),
-                                                      border: OutlineInputBorder(borderRadius: BorderRadius.circular(10))
-                                                  ),
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: const EdgeInsets.all(8.0),
-                                                child: TextField(
-                                                  controller: priceController,
-                                                  style: TextStyle(fontFamily: "des", fontSize: 16),
-                                                  decoration: InputDecoration(
-                                                      hintText: "Input Price Products",
-                                                      hintStyle: TextStyle(fontSize: 16,fontFamily: "des"),
-                                                      border: OutlineInputBorder(borderRadius: BorderRadius.circular(10))
-                                                  ),
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: const EdgeInsets.all(8.0),
-                                                child: Container(
-                                                  child: TextField(
-                                                    controller: productController,
-                                                    keyboardType: TextInputType.multiline,
-                                                    maxLines: null,
-                                                    style: TextStyle(fontSize: 16,fontFamily: "k2"),
-                                                    decoration: InputDecoration(
-                                                      border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
-                                                      hintText: "Input Product information khmer",
-                                                      hintStyle: TextStyle(fontSize: 16, fontFamily: "des"),
-                                                    ),
-                                                  ),
-
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: const EdgeInsets.all(8.0),
-                                                child: Container(
-                                                  child:  TextField(
-                                                    controller: descriptionController,
-                                                    keyboardType: TextInputType.multiline,
-                                                    maxLines: null,
-                                                    style: TextStyle(fontSize: 16,fontFamily: "des"),
-                                                    decoration: InputDecoration(
-                                                      border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
-                                                      hintText: "Input Description information font English",
-                                                      hintStyle: TextStyle(fontSize: 16, fontFamily: "des"),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-
-                                              Padding(
-                                                padding: const EdgeInsets.all(8.0),
-                                                child: ElevatedButton(
-                                                  onPressed: () async{
-                                                    final imageURL = await uploadImage(_image!);
-                                                    FirebaseFirestore.instance.collection("Products").doc(data.id).update({
-                                                      'img' : imageURL,
-                                                      'name' : nameController.text.trim(),
-                                                      'price' : priceController.text,
-                                                      'proInfo' : productController.text,
-                                                      'desInfo' :descriptionController.text
-                                                    }).whenComplete(() => ScaffoldMessenger.of(context)
-                                                        .showSnackBar(
-                                                        SnackBar(
-                                                            content: Text("You Update product successful")
-                                                        )));
-                                                  },
-                                                  child: Text("Update" ,style: TextStyle(fontWeight: FontWeight.bold ,fontFamily:  "des", fontSize: 30),),
-                                                  style: ElevatedButton.styleFrom(
-                                                    primary: Colors.yellow,
-                                                    fixedSize: Size(150, 60),
-                                                  ),
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: const EdgeInsets.all(8.0),
-                                                child: ElevatedButton(
-                                                  onPressed: () async{
-                                                    FirebaseFirestore.instance.collection("Products")
-                                                        .doc(data.id)
-                                                        .delete().whenComplete(() => ScaffoldMessenger.of(context)
-                                                        .showSnackBar(
-                                                        SnackBar(
-                                                            content: Text("You Delete product successful")
-                                                        )));
-                                                  },
-                                                  child: Text("Delete" ,style: TextStyle(fontWeight: FontWeight.bold ,fontFamily:  "des", fontSize: 30),),
-                                                  style: ElevatedButton.styleFrom(
-                                                    primary: Colors.red,
-                                                    fixedSize: Size(150, 60),
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        );
-                                      });
-                                    },
-                                    child: Text("Edit", style: TextStyle(fontFamily: "title", fontWeight: FontWeight.bold,fontSize: 25),),
-                                    style: ElevatedButton.styleFrom(
-                                        primary: Colors.lightGreenAccent,
-                                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-                                        fixedSize: Size(150, 40)
-                                    ),
+                                  image: DecorationImage(
+                                      image: NetworkImage(data['img']),
+                                      fit: BoxFit.cover
                                   )
-                                ],
-                              )
-                          ),
+                              ),
+                            ),
 
-                          SizedBox(height: 10,),
+                          ],
+                        ),
+
+                        SizedBox(height: 10,),
+                        Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Container(
+                                    child:  Text("${data['name']}", style: TextStyle(fontFamily: "des",fontWeight: FontWeight.bold,fontSize: 18),),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Container(
+                                    child:  Text("${data['price']}", style: TextStyle(fontFamily: "des",fontWeight: FontWeight.bold,fontSize: 18),),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Container(
+                                    child: Text("${data['proInfo']}",style: TextStyle(fontFamily: "k2",fontSize: 16),),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Container(
+                                    child: Text("${data['desInfo']}",style: TextStyle(fontFamily: "des",fontSize: 16),),
+                                  ),
+                                ),
+                                ElevatedButton(
+                                  onPressed: (){
+                                    showDialog(context: context, builder: (_){
+                                      return Dialog(
+                                        child: ListView(
+                                          physics: BouncingScrollPhysics(),
+                                          children: [
+                                            Padding(
+                                              padding: const EdgeInsets.all(8.0),
+                                              child: InkWell(
+                                                onTap: (){
+                                                  imagePicker().whenComplete(() => uploadImage(_image!));
+                                                },
+                                                child: Container(
+                                                  width: 150,
+                                                  decoration: BoxDecoration(
+                                                    color: Colors.grey,
+
+                                                  ),
+                                                  child: _image != null ? Image.file(_image!.absolute, fit: BoxFit.cover,) : Center(
+                                                    child: Icon(Icons.image, size: 60,),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: const EdgeInsets.all(8.0),
+                                              child: TextField(
+                                                controller: nameController,
+                                                style: TextStyle(fontFamily: "k2", fontSize: 16),
+                                                decoration: InputDecoration(
+                                                    hintText: "Input Name products",
+                                                    hintStyle: TextStyle(fontSize: 16,fontFamily: "des"),
+                                                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(10))
+                                                ),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: const EdgeInsets.all(8.0),
+                                              child: TextField(
+                                                controller: priceController,
+                                                style: TextStyle(fontFamily: "des", fontSize: 16),
+                                                decoration: InputDecoration(
+                                                    hintText: "Input Price Products",
+                                                    hintStyle: TextStyle(fontSize: 16,fontFamily: "des"),
+                                                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(10))
+                                                ),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: const EdgeInsets.all(8.0),
+                                              child: Container(
+                                                child: TextField(
+                                                  controller: productController,
+                                                  keyboardType: TextInputType.multiline,
+                                                  maxLines: null,
+                                                  style: TextStyle(fontSize: 16,fontFamily: "k2"),
+                                                  decoration: InputDecoration(
+                                                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+                                                    hintText: "Input Product information khmer",
+                                                    hintStyle: TextStyle(fontSize: 16, fontFamily: "des"),
+                                                  ),
+                                                ),
+
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: const EdgeInsets.all(8.0),
+                                              child: Container(
+                                                child:  TextField(
+                                                  controller: descriptionController,
+                                                  keyboardType: TextInputType.multiline,
+                                                  maxLines: null,
+                                                  style: TextStyle(fontSize: 16,fontFamily: "des"),
+                                                  decoration: InputDecoration(
+                                                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+                                                    hintText: "Input Description information font English",
+                                                    hintStyle: TextStyle(fontSize: 16, fontFamily: "des"),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+
+                                            Padding(
+                                              padding: const EdgeInsets.all(8.0),
+                                              child: ElevatedButton(
+                                                onPressed: () async{
+                                                  final imageURL = await uploadImage(_image!);
+                                                  FirebaseFirestore.instance.collection("Products").doc(data.id).update({
+                                                    'img' : imageURL,
+                                                    'name' : nameController.text.trim(),
+                                                    'price' : priceController.text,
+                                                    'proInfo' : productController.text,
+                                                    'desInfo' :descriptionController.text
+                                                  }).whenComplete(() => ScaffoldMessenger.of(context)
+                                                      .showSnackBar(
+                                                      SnackBar(
+                                                          content: Text("You Update product successful")
+                                                      )));
+                                                },
+                                                child: Text("Update" ,style: TextStyle(fontWeight: FontWeight.bold ,fontFamily:  "des", fontSize: 30),),
+                                                style: ElevatedButton.styleFrom(
+                                                  primary: Colors.yellow,
+                                                  fixedSize: Size(150, 60),
+                                                ),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: const EdgeInsets.all(8.0),
+                                              child: ElevatedButton(
+                                                onPressed: () async{
+                                                  FirebaseFirestore.instance.collection("Products")
+                                                      .doc(data.id)
+                                                      .delete().whenComplete(() => ScaffoldMessenger.of(context)
+                                                      .showSnackBar(
+                                                      SnackBar(
+                                                          content: Text("You Delete product successful")
+                                                      )));
+                                                },
+                                                child: Text("Delete" ,style: TextStyle(fontWeight: FontWeight.bold ,fontFamily:  "des", fontSize: 30),),
+                                                style: ElevatedButton.styleFrom(
+                                                  primary: Colors.red,
+                                                  fixedSize: Size(150, 60),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      );
+                                    });
+                                  },
+                                  child: Text("Edit", style: TextStyle(fontFamily: "title", fontWeight: FontWeight.bold,fontSize: 25),),
+                                  style: ElevatedButton.styleFrom(
+                                      primary: Colors.lightGreenAccent,
+                                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                                      fixedSize: Size(150, 40)
+                                  ),
+                                )
+                              ],
+                            )
+                        ),
+
+                        SizedBox(height: 10,),
 
 
 
-                        ],
-                      ),
+                      ],
                     ),
                   ),
                 ),
