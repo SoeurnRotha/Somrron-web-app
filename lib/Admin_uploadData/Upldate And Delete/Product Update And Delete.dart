@@ -87,7 +87,6 @@ class _Update_And_DeleteState extends State<Update_And_Delete> {
                   child: Container(
                     margin: EdgeInsets.symmetric(vertical: 10,horizontal: 10),
                     height: 700,
-
                     decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(10),
