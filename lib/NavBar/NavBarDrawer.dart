@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:samrron/About%20Us/AboutUs_responsive.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../About Us/AboutUs_Mobile.dart';
 import 'DrawerItems.dart';
@@ -29,7 +30,17 @@ class _NavBarDrawerState extends State<NavBarDrawer> {
               child: DrawerItem(title: 'About us', icon: Icons.info),
             onTap: ()=> Navigator.push(context, MaterialPageRoute(builder: (context) => AboutUs_responsive())),
           ),
-          DrawerItem(title: '016 315 751', icon: Icons.call),
+          GestureDetector(
+              child: DrawerItem(title: '016 315 751', icon: Icons.call),
+            onTap: ()async {
+              final call = Uri.parse('tel:016 315 751');
+              if (await canLaunchUrl(call)) {
+                launchUrl(call);
+              } else {
+                throw 'Could not launch $call';
+              }
+            },
+          ),
         ],
       ),
     );

@@ -19,7 +19,7 @@ class _ListProduct_TablatState extends State<ListProduct_Tablat> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 600,
+      height: 540,
         child: StreamBuilder<QuerySnapshot>(
           stream: _productHelper.read(),
           builder: (context , snapshot){
@@ -62,8 +62,8 @@ class _ListProduct_TablatState extends State<ListProduct_Tablat> {
           )));
         },
         child: Container(
-          width: 300,
-          height: 450,
+          width: 280,
+          height: 430,
           decoration: BoxDecoration(
             color: Colors.grey[200],
             borderRadius: BorderRadius.circular(10),

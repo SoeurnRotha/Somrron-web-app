@@ -19,7 +19,7 @@ class _ListProduct_MobileState extends State<ListProduct_Mobile> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 580,
+      height: 500,
       child: StreamBuilder<QuerySnapshot>(
         stream: _productHelper.read(),
         builder: (context , snapshot){
@@ -63,8 +63,8 @@ class _ListProduct_MobileState extends State<ListProduct_Mobile> {
           )));
         },
         child: Container(
-          width: 250,
-          height: 350,
+          width: 230,
+          height: 330,
           decoration: BoxDecoration(
               boxShadow: [
 

@@ -15,7 +15,7 @@ class _NavBar_MobileState extends State<NavBar_Mobile> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 100,
+      height: 70,
       decoration: BoxDecoration(
         color: Colors.white,
         boxShadow: [
@@ -37,7 +37,7 @@ class _NavBar_MobileState extends State<NavBar_Mobile> {
             Container(
               // alignment: Alignment.center,
               margin: EdgeInsets.only(right: 185),
-              child: Text("សម្រន់",style: TextStyle(fontSize: 40,fontFamily: "k1"),),
+              child: Text("សម្រន់",style: TextStyle(fontSize: 30,fontFamily: "k1"),),
             )
           ],
         ),

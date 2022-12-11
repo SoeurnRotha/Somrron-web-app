@@ -25,7 +25,7 @@ class _HomeState extends State<Home> {
         body: ListView(
           children: [
             NavBar(),
-            Header(),
+            // Header(),
             SizedBox(height: 30,),
             ListProduct(),
 

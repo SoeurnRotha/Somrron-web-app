@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../About Us/AboutUs_responsive.dart';
 
@@ -15,7 +16,7 @@ class _NavBar_TablatState extends State<NavBar_Tablat> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 100,
+      height: 70,
       decoration: BoxDecoration(
           color: Colors.white,
           boxShadow: [
@@ -28,7 +29,7 @@ class _NavBar_TablatState extends State<NavBar_Tablat> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Text("The Little Green", style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold,fontFamily: "f1"),),
+          Text("សម្រន់/ Samrron", style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold,fontFamily: "k2"),),
           Row(
 
             children: [
@@ -47,7 +48,27 @@ class _NavBar_TablatState extends State<NavBar_Tablat> {
               SizedBox(width: 20,),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Text("016 315 751", style: TextStyle(fontFamily: "f1",fontWeight: FontWeight.bold,fontSize: 16),),
+                child: GestureDetector(
+                    onTap: ()async {
+                      final call = Uri.parse('tel:016 315 751');
+                      if (await canLaunchUrl(call)) {
+                        launchUrl(call);
+                      } else {
+                        throw 'Could not launch $call';
+                      }
+
+                    },
+
+
+                    child:
+
+                    Row(
+                      children: [
+                        Icon(Icons.call,size: 20,),
+                        Text(" Call Us", style: TextStyle(fontFamily: "f1",fontWeight: FontWeight.bold,fontSize: 16),),
+                      ],
+                    )),
+
               ),
             ],
           )

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class AboutUs_Tablat extends StatefulWidget {
   const AboutUs_Tablat({Key? key}) : super(key: key);
@@ -31,6 +32,14 @@ class _AboutUs_TablatState extends State<AboutUs_Tablat> {
             ),
             title: Text("Address", style: TextStyle(fontSize: 18,fontFamily: "f2", fontWeight: FontWeight.bold),),
             subtitle: Container(child: Text("Street 460 , Toul Tom Poung, Chamkar Mon District, Phnom Penh, Cambodia")),
+            onTap: ()async {
+              final call = Uri.parse('https://maps.app.goo.gl/n54x17jaSAx84UvR9?g_st=ic');
+              if (await canLaunchUrl(call)) {
+                launchUrl(call);
+              } else {
+                throw 'Could not launch $call';
+              }
+            },
           ),
         ),
         Padding(
@@ -43,6 +52,14 @@ class _AboutUs_TablatState extends State<AboutUs_Tablat> {
             ),
             title: Text("Phone", style: TextStyle(fontSize: 18,fontFamily: "f2", fontWeight: FontWeight.bold),),
             subtitle: Container(child: Text("016 315 751")),
+            onTap: ()async {
+              final call = Uri.parse('tel:016 315 751');
+              if (await canLaunchUrl(call)) {
+                launchUrl(call);
+              } else {
+                throw 'Could not launch $call';
+              }
+            },
           ),
         ),
         Padding(
@@ -54,7 +71,15 @@ class _AboutUs_TablatState extends State<AboutUs_Tablat> {
                 child: Icon(Icons.facebook,color: Colors.white,)
             ),
             title: Text("Facebook", style: TextStyle(fontSize: 18,fontFamily: "f2", fontWeight: FontWeight.bold),),
-            subtitle: Container(child: Text("https://bit.ly/3U9s5DW",style: TextStyle(fontSize: 15,color: Colors.blue,decoration: TextDecoration.underline,),)),
+            subtitle: Container(child: Text("Click here",style: TextStyle(fontSize: 15,color: Colors.blue,decoration: TextDecoration.underline,),)),
+            onTap: ()async {
+              final call = Uri.parse('https://www.facebook.com/profile.php?id=100088119492044&mibextid=LQQJ4d');
+              if (await canLaunchUrl(call)) {
+                launchUrl(call);
+              } else {
+                throw 'Could not launch $call';
+              }
+            },
           ),
         ),
 
@@ -73,7 +98,7 @@ class _AboutUs_TablatState extends State<AboutUs_Tablat> {
         SizedBox(height: 30,),
 
         Container(
-          height: 100,
+          height: 60,
           color: Colors.black,
           child: Center(child: Text("© Somrron. 2022. All Rights Reserved ", style: TextStyle(fontSize: 15,fontFamily: "f2",fontWeight: FontWeight.bold,letterSpacing: 2,color: Colors.white,decoration: TextDecoration.none),maxLines: 1,overflow: TextOverflow.ellipsis  ,)),
         )
@@ -109,8 +134,8 @@ class _AboutUs_TablatState extends State<AboutUs_Tablat> {
               width: 50,
               height: 50,
               decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: Colors.white,
+                // shape: BoxShape.circle,
+                // color: Colors.white,
 
               ),
               child: Icon(Icons.arrow_back_ios_rounded,size: 30,color: Colors.black26,),
